@@ -1,0 +1,42 @@
+<%layout('layout/boilerplate') %>
+
+<div class="container">
+  <h1 class="text-center my-4">new campground</h1>
+  <div class="col-6 offset-3">
+    <form action="/campground" class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="title" class="form-label">title </label>
+        <input type="text" name="campground[title]" id="title" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">location </label>
+        <input type="text" name="campground[location]" id="location" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="state" class="form-label">state </label>
+        <input type="text" name="campground[state]" id="state" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">price </label>
+        <div class="input-group">
+          <span class="input-group-text">$</span>
+          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="price" name="campground[price]" required />
+          <span class="input-group-text">.00</span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div>
+          <input type="file" name="image" id="" multiple>
+        </div>
+        <!-- <label for="image" class="form-label">image </label>
+        <input type="text" name="campground[image]" id="image" class="form-control" required />
+      </div> -->
+      <div class="mb-3">
+        <label for="description" class="form-label">description </label>
+        <textarea type="text" name="campground[description]" id="description" class="form-control" required></textarea>
+      </div>
+      <button class="btn btn-primary mb-3">submit</button>
+    </form>
+    <a href="/campground"> back to all campgrounds</a>
+  </div>
+</div>
