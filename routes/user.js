@@ -16,10 +16,5 @@ router.route("/login")
 
 router.get("/logout", user.logout)
 
-// router.get("/logout", (req, res) => {
-//   req.logout().req.logOut()
-//   req.flash("success", "goodbye!")
-//   res.redirect("/campground")
-// })
 
 module.exports = router

@@ -2,24 +2,14 @@
 
 <div class="alert alert-success alert-dismissible fade show mr-auto" role="alert">
   <%= success %>
-  <button type="button" class="btn-close  mr-auto" data-dismiss="alert" aria-label="Close">
-    <!-- <span aria-hidden="true">&times;</span> --> X
-  </button>
+  <button type="button" class="btn-close mr-auto" data-dismiss="alert" aria-label="Close">X</button>
+</div>
+
+<% }%> <% if (error && error.length ) {%>
+
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <%= error %>
+  <button type="button" class="btn-close ml-auto" data-dismiss="alert" aria-label="Close">X</button>
 </div>
 
 <% }%>
-
-
-<% if (error && error.length ) {%>
-
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-      <%= error %>
-      <button type="button" class="btn-close ml-auto" data-dismiss="alert" aria-label="Close">
-        <!-- <span aria-hidden="true">&times;</span> --> X
-      </button>
-    </div>
-    
-    <% }%>
-    
-    
-     
