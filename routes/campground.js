@@ -1,5 +1,5 @@
 const express = require("express")
-const campgrounds = require("../controllers/campgrounds")
+const campgrounds = require("../controllers/campGround")
 const CatchAsync = require("../utils/CatchAsync")
 const { isLoggedIn, isAuthor, validateCampground } = require("../middleware")
 const {  cloudinary,storage}  = require('../cloudinary/index')

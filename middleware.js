@@ -1,4 +1,4 @@
-const Campground = require("./models/campground")
+const Campground = require("./models/campGround")
 const { campgroundSchema } = require("./schemes.js")
 const ExpressEroor = require("./utils/ExpressError")
 const {  reviewSchema } = require("./schemes.js")
@@ -8,7 +8,7 @@ module.exports.isLoggedIn = (req, res, next) => {
   if (!req.isAuthenticated()) {
   
     req.session.returnTo = req.originalUrl
-    
+
     req.flash("error", "you must be signed in")
     return res.redirect("/login")
   }

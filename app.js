@@ -18,10 +18,10 @@ const CatchAsync = require("./utils/CatchAsync")
 const ExpressEroor = require("./utils/ExpressError")
 
 const User = require("./models/user")
-const Campground = require("./models/campground")
+const Campground = require("./models/campGround")
 
 const userRoutes = require("./routes/user")
-const campgroundRoutes = require("./routes/campground")
+const campgroundRoutes = require("./routes/campGround")
 const reviewRoutes = require("./routes/review")
 
 mongoose.connect("mongodb://localhost:27017/yalpCamp", {

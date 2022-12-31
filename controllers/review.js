@@ -1,5 +1,5 @@
 const Reviews = require("../models/review")
-const Campground = require("../models/campground")
+const Campground = require("../models/campGround")
 
 module.exports.createReview = async (req, res) => {
     const { body, rating } = req.body

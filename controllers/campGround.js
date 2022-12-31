@@ -1,4 +1,4 @@
-const Campground = require("../models/campground")
+const Campground = require("../models/campGround")
 
 module.exports.index = async (req, res) => {
   const campgrounds = await Campground.find({})

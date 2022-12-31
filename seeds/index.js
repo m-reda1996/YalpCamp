@@ -1,9 +1,9 @@
 const mongoose = require("mongoose")
 mongoose.set("strictQuery", true)
 const cities = require("./cities")
-const { descriptors, places } = require("./seendHelpers")
+const { descriptors, places } = require("./seedHelpers")
 
-const Campground = require("../models/campground")
+const Campground = require("../models/campGrounds")
 mongoose.connect("mongodb://localhost:27017/yalpCamp", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
