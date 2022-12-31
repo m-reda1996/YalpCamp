@@ -28,8 +28,7 @@ module.exports.login = (req, res) => {
   req.flash("success", "welcome back")
   // it faile and all redirect to campground   how to fix it
   // const redirectUrl = req.session[3] || '/campground'
-  console.log("thus iisss", req.session.returnTo)
-  res.redirect(redirectUrl)
+    res.redirect(redirectUrl)
 }
 
 module.exports.logout = (req, res) => {

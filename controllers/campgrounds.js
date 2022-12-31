@@ -11,12 +11,12 @@ module.exports.renderForm = (req, res) => {
 module.exports.createCamp = async (req, res, next) => {
   // if(!req.body.campground) throw new ExpressEroor(' invalid ')
   const files = req.files
-  console.log(files)
+
   const newCamp = new Campground(req.body.campground)
   newCamp.images = req.files?.map((f) => ({ url: f.path, filename: f.filename }))
   newCamp.author = req.user._id
   await newCamp.save()
-  console.log(newCamp)
+
   req.flash("success", "successuly made a new camp ")
   res.redirect(`/campground/${newCamp._id}`)
 }
@@ -51,7 +51,7 @@ module.exports.renderEditForm = async (req, res) => {
 
 module.exports.updateCamp = async (req, res) => {
   const { id } = req.params
-  console.log(req.body)
+
   const campground = await Campground.findByIdAndUpdate(id, {
     ...req.body.campground,
   })
@@ -61,7 +61,7 @@ module.exports.updateCamp = async (req, res) => {
   await campground.save()
   if(req.body.deleteImages){
    await campground.updateOne({$pull :{images :{filename :{$in : req.body.deleteImages}}}})
-    console.log('aaa',campground)
+    
   }
   await campground.save()
   req.flash("success", "successuly update a camp ")
