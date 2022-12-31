@@ -60,9 +60,10 @@ module.exports.updateCamp = async (req, res) => {
   campground.images.push(...imgs)
   await campground.save()
   if(req.body.deleteImages){
-    campground.updateOne({ filename : req.body.deleteImages})
-    console.log(campground)
+   await campground.updateOne({$pull :{images :{filename :{$in : req.body.deleteImages}}}})
+    console.log('aaa',campground)
   }
+  await campground.save()
   req.flash("success", "successuly update a camp ")
   res.redirect(`/campground/${campground._id}`)
 }
