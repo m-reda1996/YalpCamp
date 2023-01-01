@@ -4,22 +4,21 @@ const Review = require("./review")
 
 const Schema = mongoose.Schema
 
-
-
-
 const CampgroundSchema = new Schema({
   title: String,
   price: Number,
-  images: [{
-    url : String,
-    filename : String
-  }],
+  images: [
+    {
+      url: String,
+      filename: String,
+    },
+  ],
   description: String,
   location: String,
   state: String,
   author: {
     type: Schema.Types.ObjectId,
-    ref : "User"
+    ref: "User",
   },
   review: [
     {

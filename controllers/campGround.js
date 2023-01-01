@@ -56,17 +56,21 @@ module.exports.updateCamp = async (req, res) => {
   const campground = await Campground.findByIdAndUpdate(id, {
     ...req.body.campground,
   })
-  const imgs = req.files?.map((f) => ({url : f.path , filename : f.filename}))
-  
-  campground.images.push(...imgs)
-  await campground.save()
   if(req.body.deleteImages){
     for (let filename of req.body.deleteImages){
       await cloudinary.uploader.destroy(filename)
-    }
-   await campground.updateOne({$pull :{images :{filename :{$in : req.body.deleteImages}}}})
-    
-  }
+    }}
+  req.body.deleteImages?.forEach(async(deleteImage) => {
+    const index = campground.images.findIndex(i => i.filename === deleteImage)
+    campground.images.splice(index, 1)
+  })
+
+
+  req.files?.forEach((f) => {
+    campground.images.push({ url: f.path, filename: f.filename })
+  })
+
+
   await campground.save()
   req.flash("success", "successuly update a camp ")
   res.redirect(`/campground/${campground._id}`)
