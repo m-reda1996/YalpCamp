@@ -4,6 +4,9 @@ const Review = require("./review")
 
 const Schema = mongoose.Schema
 
+
+
+
 const CampgroundSchema = new Schema({
   title: String,
   price: Number,

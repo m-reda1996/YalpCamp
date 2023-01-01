@@ -1,3 +1,4 @@
+const { cloudinary } = require("../cloudinary")
 const Campground = require("../models/campGround")
 
 module.exports.index = async (req, res) => {
@@ -60,6 +61,9 @@ module.exports.updateCamp = async (req, res) => {
   campground.images.push(...imgs)
   await campground.save()
   if(req.body.deleteImages){
+    for (let filename of req.body.deleteImages){
+      await cloudinary.uploader.destroy(filename)
+    }
    await campground.updateOne({$pull :{images :{filename :{$in : req.body.deleteImages}}}})
     
   }
